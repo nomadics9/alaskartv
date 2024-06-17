@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/leftFrame"
+        android:layout_width="170dp"
+        android:layout_height="420dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/infoTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="185dp"
+            android:textAlignment="viewEnd"
+            android:textAllCaps="true"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/infoValue1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infoTitle1"
+            android:layout_alignParentEnd="true"
+            android:alpha=".6"
+            android:textAlignment="viewEnd"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/infoTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infoValue1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:textAlignment="viewEnd"
+            android:textAllCaps="true"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/infoValue2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infoTitle2"
+            android:layout_alignParentEnd="true"
+            android:alpha=".6"
+            android:textAlignment="viewEnd"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/infoTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infoValue2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:textAlignment="viewEnd"
+            android:textAllCaps="true"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/infoValue3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infoTitle3"
+            android:layout_alignParentEnd="true"
+            android:alpha=".6"
+            android:textAlignment="viewEnd"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/middleFrame"
+        android:layout_width="480dp"
+        android:layout_height="420dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/leftFrame">
+
+        <TextView
+            android:id="@+id/fdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/fdMainInfoRow"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40sp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-light"
+            android:gravity="bottom"
+            android:maxLines="2"
+            android:text="Main Title"
+            android:textSize="32sp" />
+
+        <LinearLayout
+            android:id="@+id/fdMainInfoRow"
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_above="@+id/fdGenreRow"
+            android:layout_alignStart="@+id/fdTitle"
+            android:dividerPadding="4sp"
+            android:orientation="horizontal" />
+
+        <TextView
+            android:id="@+id/fdGenreRow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fdSummaryText"
+            android:layout_alignStart="@+id/fdMainInfoRow"
+            android:minHeight="22sp" />
+
+        <org.jellyfin.androidtv.ui.ExpandableTextView
+            android:id="@+id/fdSummaryText"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:layout_above="@id/fdButtonRow"
+            android:layout_alignStart="@id/fdTitle"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-light"
+            android:maxLines="6"
+            android:textSize="16sp"
+            android:transitionName="summary" />
+
+        <LinearLayout
+            android:id="@+id/fdButtonRow"
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            android:layout_alignStart="@+id/fdTitle"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:divider="@drawable/blank10x10"
+            android:gravity="start"
+            android:orientation="horizontal"
+            android:showDividers="none"
+
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/middleFrame">
+
+        <org.jellyfin.androidtv.ui.AsyncImageView
+            android:id="@+id/mainImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/shape_card"
+            android:contentDescription="@null"
+            android:foregroundGravity="fill_horizontal"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/blank30x30"
+            tools:srcCompat="@drawable/app_icon" />
+
+        <ProgressBar
+            android:id="@+id/fdProgress"
+            style="@style/overlay_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/mainImage"
+            android:layout_alignEnd="@+id/mainImage"
+            android:layout_alignBottom="@+id/mainImage"
+            android:layout_margin="5dp"
+            android:max="100"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+</RelativeLayout>
